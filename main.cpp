@@ -3,7 +3,7 @@
 #include "time.h"
 #include "string"
 #include "windows.h"
-#pragma once;
+
 using namespace std;
 
 int num = 6;//技能
@@ -11,9 +11,7 @@ int option1;//是否开始游戏
 int option2;//是否修改技能
 int option3;//设置技能属性
 int option4;//选择技能序号
-string sex;
-string name;
-string profession;
+string sex, name, profession;
 RPG my;
 
 void menu1();//主菜单
@@ -27,22 +25,22 @@ int main() {
         menu1();
         cin >> option1;
         switch (option1) {
-            case 1:
+            case 1://开始游戏
                 system("cls");
                 menu2();
                 system("pause");
                 break;
-            case 2:
+            case 2://排行榜
                 system("cls");
                 my.Rank();
                 system("pause");
                 break;
-            case 3:
+            case 3://设置
                 system("cls");
                 menu3();
                 system("pause");
                 break;
-            case 4:
+            case 4://退出游戏
                 return 0;
             default:
                 break;
