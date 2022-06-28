@@ -17,8 +17,8 @@ RPG my;
 void Main_menu();//主菜单
 void Role_set_menu();//设置角色
 
-void menu3();//嘿嘿嘿
-void menu4();//设置技能
+void Skill_set_menu();//修改技能属性
+void Skill_choice_menu();//选择技能
 
 int main() {
     do {
@@ -37,7 +37,7 @@ int main() {
                 break;
             case 3://设置
                 system("cls");
-                menu3();
+                Skill_set_menu();
                 system("pause");
                 break;
             case 4://退出游戏
@@ -54,7 +54,7 @@ void Main_menu()
 {
     system("cls");
     cout << "==============================" << endl;
-    cout << "     奇幻冒险文字版RPG游戏" << endl;
+    cout << "       勇者大陆文字版" << endl;
     cout << "==============================" << endl;
     cout << "         1.开始游戏" << endl;
     cout << "         2.排行榜" << endl;
@@ -83,8 +83,8 @@ void Role_set_menu()
     my.Gaming(profession);
 }
 
-//小彩蛋——修改属性
-void menu3()
+//小彩蛋——修改技能属性
+void Skill_set_menu()
 {
     do
     {
@@ -100,14 +100,14 @@ void menu3()
         if (skill_ischange == 1)
         {
             system("cls");
-            menu4();
+            Skill_choice_menu();
             system("pause");
         }
     } while (skill_ischange != 2);
 }
 
-//修改技能属性
-void menu4()
+//选择技能
+void Skill_choice_menu()
 {
     do
     {
