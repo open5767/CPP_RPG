@@ -49,7 +49,7 @@ aux_source_directory(src DIR_SRCS)
 # 指定最终生成的可执行文件的路径
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-add_executable(21RM ${DIR_SRCS})
+add_executable(勇者大陆文字版 ${DIR_SRCS})
 
 # IF (CMAKE_SYSTEM_NAME MATCHES "Windows")
 # 	SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
