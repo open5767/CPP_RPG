@@ -1,0 +1,36 @@
+# ============================================
+# GitHub → Gitee Repository Mirror
+# ============================================
+# Usage:
+#   1. Create GITEE_TOKEN secret in GitHub repo:
+#      Settings → Secrets and variables → Actions
+#      Add: GITEE_TOKEN = <your Gitee personal access token>
+#   2. Copy this file to .github/workflows/ in any repo needing sync
+#   3. Push to main — workflow runs automatically
+# ============================================
+
+name: Mirror to Gitee
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror push to Gitee
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          git remote add mirror "https://ck5767:${GITEE_TOKEN}@gitee.com/ck5767/${REPO_NAME}.git" 2>/dev/null || true
+          git push -f mirror --all
+          git push -f mirror --tags
